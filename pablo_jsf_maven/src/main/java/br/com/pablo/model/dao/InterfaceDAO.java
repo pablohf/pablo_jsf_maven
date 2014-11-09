@@ -1,4 +1,4 @@
-package com.br.pablo.model.dao;
+package br.com.pablo.model.dao;
 
 import java.io.Serializable;
 import java.util.List;

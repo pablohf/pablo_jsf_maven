@@ -1,4 +1,4 @@
-package com.br.pablo.util;
+package br.com.pablo.util;
 
 import javax.faces.context.FacesContext;
 import org.hibernate.Session;

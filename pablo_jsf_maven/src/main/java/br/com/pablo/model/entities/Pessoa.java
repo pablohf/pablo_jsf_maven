@@ -1,4 +1,4 @@
-package com.br.pablo.model.entities;
+package br.com.pablo.model.entities;
 
 import java.io.Serializable;
 import java.util.Date;

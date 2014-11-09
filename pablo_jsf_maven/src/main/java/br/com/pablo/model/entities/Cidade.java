@@ -1,11 +1,10 @@
-package com.br.pablo.model.entities;
+package br.com.pablo.model.entities;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -13,39 +12,40 @@ import javax.persistence.Table;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Table(name = "estado")
-public class Estado implements Serializable {
+@Table(name = "cidade")
+public class Cidade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
-    @Column(name = "idEstado", nullable = false)
-    private Integer idEstado;
-    @Column(name = "NomeEstado", nullable = false, length = 40)
-    private String nomeEstado;
+    @Column(name = "IdCidade", nullable = false)
+    private Integer idCidade;
 
-    @OneToMany(mappedBy = "estado", fetch = FetchType.LAZY)
-    @ForeignKey(name = "Endereco_Estado")
+    @Column(name = "Nome", length = 80, nullable = false)
+    private String nome;
+
+    @OneToMany
+    @ForeignKey(name = "CidadeEndereco")
     private List<Endereco> enderecos;
 
-    public Estado() {
+    public Cidade() {
     }
 
-    public Integer getIdEstado() {
-        return idEstado;
+    public Integer getIdCidade() {
+        return idCidade;
     }
 
-    public void setIdEstado(Integer idEstado) {
-        this.idEstado = idEstado;
+    public void setIdCidade(Integer idCidade) {
+        this.idCidade = idCidade;
     }
 
-    public String getNomeEstado() {
-        return nomeEstado;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeEstado(String nomeEstado) {
-        this.nomeEstado = nomeEstado;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Endereco> getEnderecos() {
@@ -58,8 +58,8 @@ public class Estado implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.idEstado);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.idCidade);
         return hash;
     }
 
@@ -71,10 +71,11 @@ public class Estado implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Estado other = (Estado) obj;
-        if (!Objects.equals(this.idEstado, other.idEstado)) {
+        final Cidade other = (Cidade) obj;
+        if (!Objects.equals(this.idCidade, other.idCidade)) {
             return false;
         }
         return true;
     }
+
 }
