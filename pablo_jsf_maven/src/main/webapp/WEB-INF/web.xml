@@ -22,11 +22,11 @@
     
     <!-- Configurações do tema do PrimeFaces -->
     
-    <dependency>
+<!--    <dependency>
         <groupId>org.primcefaces.themes</groupId>
         <artifactId>south-street</artifactId>
         <version>1.0.4</version>
-    </dependency> 
+    </dependency> -->
     
     <context-param>
         <param-name>primefaces.THEME</param-name>
