@@ -9,28 +9,16 @@
       ><!-- xmlns:sec="http://www.springframework.org/security/facelets/tags" -->
 
     <h:head>
-        <title>Semeru - Curso de JSF e Maven</title>
+        <title>JavaServer Faces - Curso de JSF e Maven</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="./../resources/restrict/css/semeru.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/restrict/css/pablo.css" rel="stylesheet" type="text/css" />
         <link href="./../resources/restrict/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />    
     </h:head>
 
     <h:body>
 
         <div id="topo">
-            <!-- <a href="http://www.semeru.com.br/"><div id="logotipo"></div></a> -->
-                        
-            <div id="logoff">
-                <h:form>
-                    <br/>
-                    <h5><h:outputText value="SEJA BEM VINDO(A) #{bbUsuarioLogado.procuraPessoa().getNome()}!"/></h5>
-                    <br/>
-                    <a href="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
-	                <h4>LOGOFF</h4>
-	            </a>
-
-                </h:form>
-            </div>
+            <!-- <a href="http://www.semeru.com.br/"><div id="logotipo"></div></a> -->            
         </div>
 
         <div id="menu"><!-- Menu ########################################## Menu-->
@@ -42,7 +30,7 @@
                         <p:menuitem value="Pessoas" url="/restrict/cadastrarpessoas.faces"/>
                     </p:submenu> 
                     <p:submenu label="Consultas">  
-                        
+
                     </p:submenu>                                      
                 </p:menubar> 
             </h:form>           
@@ -55,10 +43,10 @@
         </div>
 
         <div id="rodape">
-            <a href="http://www.unicentro.br/"><img src="./../resources/restrict/images/logo_mini.png" /></a>
+            <a href="http://www.oracle.com/technetwork/java/javaee/javaserverfaces-139869.html"><img src="./../resources/restrict/images/logo_mini.png" /></a>
 
             <div id="copyright">                  
-                <a href="http://www.unicentro.br/">Trabalho de Tópicos - Java Server Faces com Hibernate, Maven e Spring Security - &copy; Copyright Andrei Strickler/Pablo Ferreira 2014</a>
+                <a href="http://www.unicentro.br/">Trabalho de Tópicos - Java Server Faces com PrimeFaces, Hibernate, Maven e Spring Security - &copy; Copyright Andrei Strickler/Pablo Ferreira 2014</a>
             </div>
         </div> <!--Fim da div rodape -->
 
