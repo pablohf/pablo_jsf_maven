@@ -8,11 +8,11 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "mbCidade")
-@SessionScoped
+@RequestScoped
 public class MbCidade implements Serializable {
 
     private static final long serialVersion = 1L;
@@ -30,7 +30,7 @@ public class MbCidade implements Serializable {
 
     public String limpCidade() {
         cidade = new Cidade();
-        return "/restrict/cadastrarcidade.faces";
+        return editCidade();
     }
 
     public String editCidade() {
@@ -50,13 +50,13 @@ public class MbCidade implements Serializable {
     private void insertCidade() {
         cidadeDAO().save(cidade);
         FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efeturada com sucesso", ""));
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
     }
 
     private void updateCidade() {
         cidadeDAO().update(cidade);
         FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efeturada com sucesso", ""));
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
     }
 
     public void deleteCidade() {
