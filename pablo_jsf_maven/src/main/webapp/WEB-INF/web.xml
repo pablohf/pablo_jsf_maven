@@ -30,7 +30,7 @@
     
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>blitzer</param-value>     
+        <param-value>sam</param-value>     
     </context-param>
     
     <!-- Configurações JavaServer Faces -->

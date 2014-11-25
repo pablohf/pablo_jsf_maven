@@ -28,20 +28,15 @@ public class Pessoa implements Serializable {
 
     @Column(name = "Name", nullable = false, length = 80)
     private String nome;
-
     @Column(name = "Email", nullable = false, length = 80)
     private String email;
-
     @Column(name = "Telefone", nullable = false, length = 15)
     private String telefone;
-
     @Column(name = "CPF", nullable = false, length = 14)
     private String cpf;
-
     @Column(name = "DataDeNascimento", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeNascimento;
-
     @Column(name = "DataDeCadastro", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeCadastro;
@@ -56,6 +51,7 @@ public class Pessoa implements Serializable {
     private Sexo sexo;
 
     public Pessoa() {
+        this.sexo = new Sexo();
     }
 
     public Integer getIdPessoa() {
