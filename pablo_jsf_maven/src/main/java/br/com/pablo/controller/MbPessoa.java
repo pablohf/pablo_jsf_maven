@@ -7,8 +7,10 @@ import br.com.pablo.model.entities.Pessoa;
 import br.com.pablo.util.FacesContextUtil;
 import java.io.Serializable;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -42,5 +44,67 @@ public class MbPessoa implements Serializable {
     
     public String editPessoa(){        
         return "/restrict/cadastrarpessoa.faces";
+    }
+    
+    public String addPessoa(){
+        if(pessoa.getIdPessoa() == null || pessoa.getIdPessoa() == 0){
+            insertPessoa();
+        }else{
+            updatePessoa();
+        }
+        return null;
+    }
+
+    private void insertPessoa() {
+        pessoaDAO().save(pessoa);
+         FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravação efetuada com sucesso", ""));
+    }
+
+    private void updatePessoa() {
+        pessoaDAO().update(pessoa);
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualização efetuada com sucesso", ""));
+    }
+    
+    public String deletePessoa(){
+        pessoaDAO().remove(pessoa);
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro Excluído com sucesso", ""));
+        return null;
+    }
+
+    public List<Pessoa> getPessoas() {
+        pessoas = pessoaDAO().getEntities();        
+        return pessoas;
+    }
+
+    public void setPessoas(List<Pessoa> pessoas) {
+        this.pessoas = pessoas;
+    }
+
+    public List<Endereco> getEnderecos() {
+        enderecos = enderecoDAO().getEntities();
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }
